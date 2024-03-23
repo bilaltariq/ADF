@@ -1,0 +1,9 @@
+{
+	"name": "hello-world-data-factory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fa022e83-3284-4d2c-aa05-852639a20ca3",
+		"tenantId": "d56b356b-07a9-4f23-8cef-39a0fe89f591"
+	}
+}
