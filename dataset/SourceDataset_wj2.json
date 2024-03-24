@@ -1,0 +1,45 @@
+{
+	"name": "SourceDataset_wj2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Connection_Azure_Blob_Storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "emp-dataset.csv",
+				"folderPath": "input",
+				"container": "hello-world-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "emp_id",
+				"type": "String"
+			},
+			{
+				"name": "emp_name",
+				"type": "String"
+			},
+			{
+				"name": "manager_id",
+				"type": "String"
+			},
+			{
+				"name": "title",
+				"type": "String"
+			}
+		]
+	}
+}
