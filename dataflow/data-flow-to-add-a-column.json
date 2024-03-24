@@ -1,0 +1,29 @@
+{
+	"name": "data-flow-to-add-a-column",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DestinationDataset_wj2",
+						"type": "DatasetReference"
+					},
+					"name": "datafromoutput"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "addingNewColumn"
+				}
+			],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> datafromoutput",
+				"datafromoutput derive({etl-timestamp} = currentTimestamp()) ~> addingNewColumn"
+			]
+		}
+	}
+}
