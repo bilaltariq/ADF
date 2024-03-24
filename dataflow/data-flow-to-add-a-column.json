@@ -12,7 +12,15 @@
 					"name": "datafromoutput"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DestinationDataset_wj2",
+						"type": "DatasetReference"
+					},
+					"name": "saveNewFile"
+				}
+			],
 			"transformations": [
 				{
 					"name": "addingNewColumn"
@@ -22,7 +30,11 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> datafromoutput",
-				"datafromoutput derive({etl-timestamp} = currentTimestamp()) ~> addingNewColumn"
+				"datafromoutput derive({etl-timestamp} = currentTimestamp()) ~> addingNewColumn",
+				"addingNewColumn sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> saveNewFile"
 			]
 		}
 	}
