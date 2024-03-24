@@ -1,0 +1,25 @@
+{
+	"name": "trigger-add-column",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Data-factory-copy-pipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2024-03-24T22:16:00",
+				"endTime": "2024-03-25T05:00:00",
+				"timeZone": "Pakistan Standard Time"
+			}
+		}
+	}
+}
