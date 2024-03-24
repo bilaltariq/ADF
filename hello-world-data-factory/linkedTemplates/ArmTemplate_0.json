@@ -232,6 +232,52 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/data-flow-to-add-a-column')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "DestinationDataset_wj2",
+								"type": "DatasetReference"
+							},
+							"name": "datafromoutput"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "DestinationDataset_wj2",
+								"type": "DatasetReference"
+							},
+							"name": "saveNewFile"
+						}
+					],
+					"transformations": [
+						{
+							"name": "addingNewColumn"
+						}
+					],
+					"scriptLines": [
+						"source(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> datafromoutput",
+						"datafromoutput derive({etl-timestamp} = currentTimestamp()) ~> addingNewColumn",
+						"addingNewColumn sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> saveNewFile"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DestinationDataset_wj2')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/trigger-to-copy-csv-within-blob-storage')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
