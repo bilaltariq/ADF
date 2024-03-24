@@ -1,0 +1,12 @@
+{
+	"name": "AzureSynapseArtifacts1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSynapseArtifacts",
+		"typeProperties": {
+			"endpoint": "https://hello-world-synapse-analytics.dev.azuresynapse.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/e4221fa2-d287-4089-ba23-447aabe81e6f/resourceGroups/hello-world-resource-group/providers/Microsoft.Synapse/workspaces/hello-world-synapse-analytics"
+		}
+	}
+}
