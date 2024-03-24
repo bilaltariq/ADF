@@ -1,5 +1,10 @@
 {
 	"name": "hello-world-data-factory",
+	"properties": {
+		"globalConfigurations": {
+			"PipelineBillingEnabled": "true"
+		}
+	},
 	"location": "eastus",
 	"identity": {
 		"type": "SystemAssigned",
