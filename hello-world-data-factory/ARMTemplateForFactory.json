@@ -111,6 +111,43 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "data-flow-to-add-ETL-time",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [
+							{
+								"activity": "Copy_wj2",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "data-flow-to-add-a-column",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"datafromoutput": {},
+									"saveNewFile": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
 					}
 				],
 				"policy": {
@@ -121,6 +158,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_wj2')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDataset_wj2')]",
+				"[concat(variables('factoryId'), '/dataflows/data-flow-to-add-a-column')]",
 				"[concat(variables('factoryId'), '/linkedServices/Connection_Azure_Blob_Storage')]"
 			]
 		},
