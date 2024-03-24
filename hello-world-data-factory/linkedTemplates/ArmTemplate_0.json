@@ -230,6 +230,37 @@
 				"[concat(variables('factoryId'), '/datasets/DestinationDataset_wj2')]",
 				"[concat(variables('factoryId'), '/linkedServices/Connection_Azure_Blob_Storage')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger-to-copy-csv-within-blob-storage')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "Data-factory-copy-pipeline",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 1,
+						"startTime": "2024-03-24T21:42:00",
+						"endTime": "2024-03-25T05:01:00",
+						"timeZone": "Pakistan Standard Time"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/Data-factory-copy-pipeline')]"
+			]
 		}
 	]
 }
