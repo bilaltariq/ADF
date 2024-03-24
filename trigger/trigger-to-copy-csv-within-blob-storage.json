@@ -1,0 +1,25 @@
+{
+	"name": "trigger-to-copy-csv-within-blob-storage",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Data-factory-copy-pipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2024-03-24T21:42:00",
+				"endTime": "2024-03-25T05:01:00",
+				"timeZone": "Pakistan Standard Time"
+			}
+		}
+	}
+}
