@@ -2,7 +2,7 @@
 	"name": "trigger-to-copy-csv-within-blob-storage",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
