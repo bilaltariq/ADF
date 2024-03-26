@@ -1,0 +1,25 @@
+{
+	"name": "hello_world_data_lake",
+	"properties": {
+		"Name": "hello_world_data_lake",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://hello-world-container@helloworldstoragev2.dfs.core.windows.net/hello_world_data_lake",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "hello-world-synapse-analytics-WorkspaceDefaultStorage"
+			}
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "ec93660d-60c9-4e10-9843-55b45be17319"
+	},
+	"type": "DATABASE"
+}
