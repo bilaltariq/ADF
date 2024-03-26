@@ -1,0 +1,17 @@
+{
+	"name": "Playground-SQL",
+	"properties": {
+		"content": {
+			"query": "SELECT distinct *\nFROM\n    OPENROWSET(\n        BULK '*.csv',\n        DATA_SOURCE = 'emp_data',\n        FORMAT = 'CSV',\n        PARSER_VERSION = '2.0',\n        HEADER_ROW = TRUE\n    ) AS emps;\nGO;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "empDB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
